@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2023 a las 05:58:52
+-- Tiempo de generación: 13-12-2023 a las 04:18:23
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -33,24 +33,27 @@ CREATE TABLE `oradores` (
   `apellido` varchar(35) NOT NULL,
   `mail` varchar(75) NOT NULL,
   `tema` varchar(255) NOT NULL,
-  `fecha_alta` datetime NOT NULL DEFAULT current_timestamp()
+  `fecha_alta` datetime NOT NULL DEFAULT current_timestamp(),
+  `activo` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `oradores`
 --
 
-INSERT INTO `oradores` (`id_orador`, `nombre`, `apellido`, `mail`, `tema`, `fecha_alta`) VALUES
-(1, 'Camila', 'dos Torres', 'camiladostorres@outlook.com', 'HTML5 y CSS3', '2023-11-11 01:57:27'),
-(2, 'Martin', 'Cruz', 'mcruz23@gmail.com', 'React', '2023-11-11 01:57:27'),
-(3, 'Alan', 'Ramirez', 'alanramirez@yahoo.com', 'Angular', '2023-11-11 01:57:27'),
-(4, 'Sebastian', 'Bilar', 'sbilar@gmail.com', 'Vue.js', '2023-11-11 01:57:27'),
-(5, 'Sandra', 'Valiente', 'sandravaliente@outlook.com', 'Control de versiones', '2023-11-11 01:57:27'),
-(6, 'Jose Maria', 'Kohn', 'josemkohn@gmail.com', 'Buenas practicas de diseño', '2023-11-11 01:57:27'),
-(7, 'Elizabeth', 'Finn', 'efinn04@gmail.com', 'Frameworks de animación para webs mas interactivas', '2023-11-11 01:57:27'),
-(8, 'Juan', 'Cruz', 'elverdaderojcruz@outlook.com', 'Clones de webs para maquetas rápidas y efectivas', '2023-11-11 01:57:27'),
-(9, 'Federico', 'Gomez', 'fgomez93@gmail.com', 'Obsolescencia programada', '2023-11-11 01:57:27'),
-(10, 'Carlos', 'Lopez', 'carlopez@yahoo.com', 'El declive de COBOL y el sistema bancario mundial', '2023-11-11 01:57:27');
+INSERT INTO `oradores` (`id_orador`, `nombre`, `apellido`, `mail`, `tema`, `fecha_alta`, `activo`) VALUES
+(1, 'Camila', 'dos Torres', 'camiladostorres@outlook.com', 'HTML5 y CSS3', '2023-11-11 01:57:27', 'S'),
+(2, 'Martin', 'Cruz', 'mcruz23@gmail.com', 'React', '2023-11-11 01:57:27', 'S'),
+(3, 'Alan', 'Ramirez', 'alanramirez@yahoo.com', 'Angular', '2023-11-11 01:57:27', 'S'),
+(4, 'Sebastian', 'Bilar', 'sbilar@gmail.com', 'Vue.js', '2023-11-11 01:57:27', 'S'),
+(5, 'Sandra', 'Valiente', 'sandravaliente@outlook.com', 'Control de versiones', '2023-11-11 01:57:27', 'S'),
+(6, 'Jose Maria', 'Kohn', 'josemkohn@gmail.com', 'Buenas practicas de diseño', '2023-11-11 01:57:27', 'S'),
+(7, 'Elizabeth', 'Finn', 'efinn04@gmail.com', 'Frameworks de animación para webs mas interactivas', '2023-11-11 01:57:27', 'S'),
+(8, 'Juan', 'Cruz', 'elverdaderojcruz@outlook.com', 'Clones de webs para maquetas rápidas y efectivas', '2023-11-11 01:57:27', 'N'),
+(9, 'Federico', 'Gomez', 'fgomez93@gmail.com', 'Obsolescencia programada', '2023-11-11 01:57:27', 'N'),
+(10, 'Carlos', 'Lopez', 'carlopez@yahoo.com', 'El declive de COBOL y el sistema bancario mundial.', '2023-11-11 01:57:27', 'S'),
+(11, 'Ramiro', 'Testo', 'rtesto@rttech.com', 'Implementación de tecnología en el ámbito educativo', '2023-12-12 22:58:24', 'N'),
+(12, 'Orador', 'Bueno', 'orador@mail.com', 'Angular', '2023-12-13 00:15:53', 'S');
 
 --
 -- Índices para tablas volcadas
@@ -70,7 +73,7 @@ ALTER TABLE `oradores`
 -- AUTO_INCREMENT de la tabla `oradores`
 --
 ALTER TABLE `oradores`
-  MODIFY `id_orador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_orador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

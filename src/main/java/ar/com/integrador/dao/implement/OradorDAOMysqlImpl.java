@@ -74,9 +74,11 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 			String mailBd = resultset.getString("mail");
 			String temaBd = resultset.getString("tema");
 			String activoBd = resultset.getString("activo");
-			// creamos un departamento y lo agregamos a la lista
+
+			if (activoBd.equals("S")) {
 			Orador d = new Orador(idBd, nombreBd, apellidoBd, mailBd, temaBd, activoBd);
 			oradores.add(d);
+			}
 
 		}
 		cerrar(connection);
@@ -89,8 +91,8 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 		// -1 necesito la conection a la base
 		Connection connection = AdministradorDeConexiones.getConnection();
 		// 2 - arma el statement
-		String sql = "DELETE FROM oradores WHERE id_orador=" + id;
-		/* String sql = "update oradores set activo = 'N' WHERE id_orador=" + id; */
+//		String sql = "DELETE FROM oradores WHERE id_orador=" + id;
+		String sql = "update oradores set activo = 'N' WHERE id_orador=" + id;
 		Statement statement = connection.createStatement();
 		// 3 -devuelve un entero devuelve 1 o 0, pero no hace falta confirmar para este
 		// caso
@@ -127,9 +129,9 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 	@Override
 	public void update(Orador orador) throws Exception {
 		// creo un orador con los datos modificados del orador
-
-		// -1 necesito la conection a la base
+		// 1 - necesito la conexion a la base
 		Connection connection = AdministradorDeConexiones.getConnection();
+		
 		// 2 - arma el statement
 		String sql = "update oradores set nombre = ?, apellido = ?, mail = ?, tema = ?, activo =? where id_orador= ?";
 		PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -139,8 +141,8 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 		statement.setString(4, orador.getTema());
 		statement.setString(5, orador.getActivo());
 		statement.setLong(6, orador.getId());
-		// 3 -devuelve un entero devuelve 1 o 0, pero no hace falta confirmar para este
-		// caso
+
+		// 3 - devuelve un entero 1 o 0, pero no hace falta confirmar para este caso
 		statement.execute();
 
 		cerrar(connection);
@@ -176,11 +178,12 @@ public class OradorDAOMysqlImpl implements iOradorDAO {
 		Connection connection = AdministradorDeConexiones.getConnection();
 
 		// 2 - arma el statement
-		String sql = "SELECT * FROM ORADORES WHERE TEMA LIKE ?";
+		String sql = "SELECT * FROM ORADORES WHERE TEMA LIKE ? AND ACTIVO = ?";
 		PreparedStatement statement = connection.prepareStatement(sql);
 
 		// setear el valor que va en remplazo del ?
 		statement.setString(1, "%" + clave + "%");
+		statement.setString(2, "S");
 
 		// 3 - resultset
 		ResultSet resultSet = statement.executeQuery();

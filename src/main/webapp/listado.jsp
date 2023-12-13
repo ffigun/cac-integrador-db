@@ -19,37 +19,34 @@
 			<div class="text-center my-4">
 				<h2>Conoce todos los oradores que se presentan</h2>
 			</div>
-			<div class="row">
-				<div class="container my-3 gx-0 px-0 mx-0">
-					<form
-						action="<%=request.getContextPath()%>/BuscarOradorPorTemaController"
-						method="GET">
-						<div class="row justify-content-center">
-							<div class="col-9 col-md-10 col-lg-11">
-								<input type="text" class="form-control" name="tema"
-									placeholder="Buscar por tema" aria-label="Tema" required>
-							</div>
-							<div class="col">
-								<button type="submit" class="btn w-100 btn-verde">Buscar</button>
-							</div>
-						</div>
-					</form>
+			<form
+				action="<%=request.getContextPath()%>/BuscarOradorPorTemaController"
+				method="GET">
+				<div class="row justify-content-center gx-2 mb-2">
+					<div class="col-8 col-md-10">
+						<input type="text" class="form-control" name="tema"
+							placeholder="Buscar por tema" aria-label="Tema" required>
+					</div>
+					<div class="col col-md-2">
+						<button type="submit" class="btn w-100 btn-verde">Buscar</button>
+					</div>
 				</div>
-				<%
-				//codigo java
-				//obtener el listado desde el request
-				//se guardo bajo el nombre de "listado"
-				List<Orador> listado = (List<Orador>) request.getAttribute("listado");
-				%>
+			</form>
+			<%
+			//codigo java
+			//obtener el listado desde el request
+			//se guardo bajo el nombre de "listado"
+			List<Orador> listado = (List<Orador>) request.getAttribute("listado");
+			%>
 
-				<%
-				if (listado.isEmpty()) {
-				%>
-				<h3>No se encontraron oradores con ese criterio de búsqueda.</h3>
-				<%
-				} else {
-				%>
-
+			<%
+			if (listado.isEmpty()) {
+			%>
+			<h3>No se encontraron oradores con ese criterio de búsqueda.</h3>
+			<%
+			} else {
+			%>
+			<div class="table-responsive">
 				<table class="table">
 					<thead>
 						<tr>
@@ -76,11 +73,10 @@
 						%>
 					</tbody>
 				</table>
-
-				<%
-				}
-				%>
 			</div>
+			<%
+			}
+			%>
 		</section>
 		<div class="container text-center">
 			<input class="btn btn-verde" type="button" value="Volver"

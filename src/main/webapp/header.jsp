@@ -1,7 +1,7 @@
 <header>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid navbar-pad">
-			<a class="navbar-brand" href="#"> <img
+			<a class="navbar-brand" href="index.jsp"> <img
 				src="assets/img/codoacodo.png" class="logo-navbar"
 				alt="logo de codo a codo 4.0" loading="lazy"> Conf Bs As
 			</a>
