@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@100;300;400;700;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*
+Usando flex y un minimo de 100% del viewport height en el main se puede hacer que el contenido ocupe
+todo el espacio entre el header y el footer y permita que el footer se quede al fondo de la pagina
+*/
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	padding-top: 62px;
+}
+
+main {
+	flex: 1;
+}
+
+/* Uso este padding para contrarrestar la altura del navbar que esta fixed-top */
+html {
+	scroll-padding-top: 62px;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* Se requiere !important porque la clase bg-dark es !important en el css de bootstrap */
+.bg-dark {
+	background-color: #353A40 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.color-verde {
+	color: green;
+}
+
+.logo-navbar {
+	width: 4rem;
+	object-fit: cover;
+}
+
+.navbar-pad {
+	padding: 0 5% 0 5%;
+}
+
+@media (min-width: 768px) {
+	.navbar-pad {
+		padding: 0 5% 0 5%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.navbar-pad {
+		padding: 0 10% 0 10%;
+	}
+}
+
+.texto-superindice {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+.imagen-carousel-a {
+	background-image: linear-gradient(rgba(0, 0, 0, 60%), rgba(0, 0, 0, 60%)), url('../assets/img/ba1.jpg');
+	height: 600px;
+}
+
+.imagen-carousel-b {
+	background-image: linear-gradient(rgba(0, 0, 0, 60%), rgba(0, 0, 0, 60%)), url('../assets/img/ba2.jpg');
+	height: 600px;
+}
+
+.imagen-carousel-c {
+	background-image: linear-gradient(rgba(0, 0, 0, 60%), rgba(0, 0, 0, 60%)), url('../assets/img/ba3.jpg');
+	height: 600px;
+}
+
+.carousel-caption {
+	position: absolute;
+	inset: 15% 5% 0 20%;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	color: #fff;
+	text-align: right;
+	z-index: 20;
+}
+
+@media (min-width: 768px) {
+	.carousel-caption {
+		inset: 25% 5% 0 30%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.carousel-caption {
+		inset: 30% 5% 0 60%;
+	}
+}
+
+.imagen-card {
+	border-radius: 0.25rem 0.25rem 0 0;
+	object-fit: cover;
+}
+
+.btn-verde {
+	color: #fff;
+	background-color: #96C93E;
+}
+
+.btn-transparente {
+	color: #fff;
+	background-color: transparent;
+	border-color: #fff;
+}
+
+.btn-verde:hover {
+	color: #fff;
+	background-color: #72a120;
+}
+
+.btn-transparente:hover {
+	color: #ccc;
+	border-color: #ccc;
+}
+
+.btn-verde:focus {
+	box-shadow: 0 0 0 0.25rem rgba(166, 255, 82, 0.25);
+}
+
+.btn-transparente:focus {
+	box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+
+#lugarFecha img {
+	object-fit: cover;
+}
+
+.mapa {
+	height: 50vw;
+}
+
+@media (min-width: 768px) {
+	.mapa {
+		height: 35vw;
+	}
+}
+
+@media (min-width: 1200px) {
+	.mapa {
+		height: 25vw;
+	}
+}
+
+.ads {
+	height: 40vw;
+}
+
+@media (min-width: 768px) {
+	.ads {
+		height: 25vw;
+	}
+}
+
+@media (min-width: 1200px) {
+	.ads {
+		height: 20vw;
+	}
+}
+
+.texto-gris {
+	color: #6B7880;
+}
+
+footer .container-fluid {
+	background: rgb(28, 54, 67);
+	background: linear-gradient(90deg, rgba(28, 54, 67, 1) 0%, rgba(30, 83, 114, 1) 100%);
+}
+
+.enlace-menu {
+	color: #fff;
+	text-decoration: none;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.enlace-menu:hover {
+	color: #81bfce;
+}
+
+.border-estudiante {
+	border-color: #007BFF;
+}
+
+.border-trainee {
+	border-color: #17A2B8;
+}
+
+.border-junior {
+	border-color: #FFC107;
+}
+
+/* Para que no se cambie el cursor para seleccionar texto */
+#descuentos .card {
+	user-select: none;
+}
+
+/* Animacion */
+#descuentos .card:hover {
+	animation: crescendo 0.6s alternate infinite ease-in;
+}
+
+@keyframes crescendo {
+	0% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(1.05);
+	}
+}
+
+/* Ya que el container de bootstrap es demasiado grande para desktops, creo uno mas chico y responsive */
+.container-small {
+	max-width: 100%;
+}
+
+@media (min-width: 768px) {
+	.container-small {
+		width: 600px;
+	}
+}
+
+@media (min-width: 992px) {
+	.container-small {
+		width: 650px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container-small {
+		width: 700px;
+	}
+}
